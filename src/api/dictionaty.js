@@ -17,8 +17,8 @@ export const dictionaty = async (startChar) => {
     });
 
     const originURL = `${base}?${params.toString()}`;
-    // const proxyURL = `https://corsproxy.io/?${encodeURIComponent(originURL)}`;
-    const proxyURL = originURL;
+    const proxyURL = `https://corsproxy.io/?${encodeURIComponent(originURL)}`;
+    // const proxyURL = originURL;
     try{
         const res = await fetch(proxyURL);
         if(!res.ok){
