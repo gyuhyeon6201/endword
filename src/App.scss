@@ -1,0 +1,140 @@
+@import url();
+
+/* scss */
+@import "./styles/variable.scss";
+@import "./styles/mixin.scss";
+@import "./styles/reset.scss";
+
+// body{
+//     font-family: ;
+// }
+
+/* css */
+/* genaral */
+//body > #root
+#root {
+    height: 100vh;
+    background-color: #290129;
+    @include flex-center;
+}
+//body>#root>.app
+.app {
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-color);
+    color: var(--font-color);
+    border-radius: 40px;
+    @media screen and (min-width: 768px) {
+        width: 402px;
+        height: 80vh;
+    }
+}
+
+/* start-screen */
+.start-screen {
+    height: 100%;
+    text-align: center;
+    @include flex-layout(column, space-around);
+    // gap: 3rem;
+    h1 {
+        color: var(--main-color);
+        text-shadow: 0 0 10px var(--main-font);
+        font-size: 4rem;
+        span {
+            color: var(--main-color);
+            text-shadow: 0 0 10px var(--sub-font);
+        }
+    }
+    .input-form {
+        @include flex-layout(column);
+        p {
+            color: var(--gray-color);
+        }
+        input {
+            display: block;
+            width: 100%;
+            font-size: 1.5rem;
+            padding: 0.7rem;
+            color: var(--main-font);
+            text-align: center;
+            border: 1.5px solid var(--main-font);
+            // outline: 1px solid var(--main-font);
+            outline: none;
+            border-radius: 10px;
+            box-shadow: -1px -1px 5px var(--main-font);
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            @include round-button();
+            font-size: 1.5rem;
+            box-shadow: 2px 2px 5px var(--main-font);
+        }
+    }
+}
+
+/* game-screen */
+.game-screen {
+    height: 100%;
+    padding: 2rem;
+    gap: 1rem;
+    @include flex-layout(column);
+    h2 {
+        color: var(--main-font);
+    }
+    .word-list {
+        flex: 1;
+        width: 100%;
+        padding: 1rem;
+        overflow: hidden;
+        overflow-y: auto;
+    }
+    li {
+        margin: 0.5rem 0;
+        @include flex-center;
+        gap: 0.5rem;
+        justify-content: flex-start;
+        // text-align: center;
+        &:nth-child(odd) {
+            span:nth-child(2) {
+                @include round-button(var(--main-font), var(--main-color));
+                width: 60%;
+            }
+        }
+        &:nth-child(even) {
+            flex-direction: row-reverse;
+            text-align: end;
+            span:nth-child(2) {
+                @include round-button(var(--sub-font));
+                width: 60%;
+            }
+        }
+    }
+}
+.game-form {
+    width: 100%;
+    @include flex-layout(row, flex-start);
+    gap: 1rem;
+    input {
+        flex: 1;
+        @include round-button();
+        box-shadow: 0 0 5px var(--main-font);
+        padding: 13px;
+        &:hover {
+            background-color: var(--main-color);
+            color: var(--sub-font);
+            border: 1.5px solid var(--sub-font);
+            box-shadow: 0 0 5px var(--sub-font);
+        }
+    }
+    button {
+        font-size: 2rem;
+        color: var(--main-font);
+        background-color: var(--main-color);
+        border: none;
+        outline: none;
+        &:hover {
+            color: var(--sub-font);
+        }
+    }
+}
